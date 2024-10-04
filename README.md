@@ -1,4 +1,4 @@
-# Tokencreator-devtrack-algorandindiasummit
+# Tokencreator-devtrack-algorandindiasummit for participating in developer track
 
 This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
 
