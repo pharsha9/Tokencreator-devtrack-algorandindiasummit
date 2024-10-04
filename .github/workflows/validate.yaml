@@ -1,0 +1,14 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+
+jobs:
+  Tokencreator-devtrack-algorandindiasummit-contracts-ci:
+    name: Run Tokencreator-devtrack-algorandindiasummit-contracts validation
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-contracts-ci.yaml
+
+  Tokencreator-devtrack-algorandindiasummit-frontend-ci:
+    name: Run Tokencreator-devtrack-algorandindiasummit-frontend validation
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-frontend-ci.yaml
+

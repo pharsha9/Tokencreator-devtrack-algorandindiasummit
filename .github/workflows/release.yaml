@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  Tokencreator-devtrack-algorandindiasummit-contracts-validate:
+    name: Run Tokencreator-devtrack-algorandindiasummit-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-contracts-ci.yaml
+
+  Tokencreator-devtrack-algorandindiasummit-contracts-release:
+    name: Run Tokencreator-devtrack-algorandindiasummit-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-contracts-cd.yaml
+    needs: Tokencreator-devtrack-algorandindiasummit-contracts-validate
+
+  Tokencreator-devtrack-algorandindiasummit-frontend-validate:
+    name: Run Tokencreator-devtrack-algorandindiasummit-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-frontend-ci.yaml
+
+  Tokencreator-devtrack-algorandindiasummit-frontend-release:
+    name: Run Tokencreator-devtrack-algorandindiasummit-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/Tokencreator-devtrack-algorandindiasummit-frontend-cd.yaml
+    needs: Tokencreator-devtrack-algorandindiasummit-frontend-validate
